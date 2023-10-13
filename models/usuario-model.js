@@ -12,7 +12,7 @@ const Usuaro = db.sequelize.define('registros', {
         type: db.Sequelize.STRING
     },
     dataNascimento: {
-        type: db.Sequelize.DATE
+        type: db.Sequelize.STRING
     },
     email: {
         type: db.Sequelize.STRING

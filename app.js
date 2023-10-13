@@ -6,7 +6,6 @@ const app = express();
 const registro = require('./routes/registro')
 const home = require('./routes/home')
 const path = require('path');
-const router = express.Router();
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
