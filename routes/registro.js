@@ -4,12 +4,14 @@ const Usuario = require("../models/usuario-model");
 const passport = require("passport");
 var bcrypy = require("bcryptjs");
 
-registro_rotas.get("/listasRegistros", (req, res) => {
+registro_rotas.get("/registros", (req, res) => {
   res.render("home/registros");
 });
 
-registro_rotas.get("/registros", (req, res) => {
-  res.render("registros");
+registro_rotas.get("/listaRegistros", async (req, res) => {
+  Usuario.findAll({order: [['id', 'ASC']]}).then(function(registros){
+      res.render('registros', {registros: registros});
+  })
 });
 
 registro_rotas.post("/add", (req, res) => {
@@ -21,6 +23,7 @@ registro_rotas.post("/add", (req, res) => {
   var genero = req.body.genero;
   console.log(res, cpf, nome, sobrenome, dataNascimento, email, genero);
   saveUser(res, cpf, nome, sobrenome, dataNascimento, email, genero);
+  //res.redirect("/registros");
 });
 
 function saveUser(

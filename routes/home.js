@@ -10,12 +10,6 @@ home_rotas.get("/cadastro", async (req, res) => {
   res.render("home/add_registro");
 });
 
-home_rotas.get("/registros", async (req, res) => {
-    Usuario.findAll({order: [['id', 'ASC']]}).then(function(registros){
-        res.render('registros', {registros: registros});
-    })
-});
-
 home_rotas.get("/buscarRegistro/:id", async (req, res) => {
   var id = req.params.id;
   await Usuario.findByPk(id)
