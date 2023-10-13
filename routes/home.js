@@ -15,12 +15,11 @@ home_rotas.get("/cadastro", async (req, res) => {
 });
 
 home_rotas.get("/registros", async (req, res) => {
-    await Registro.findAll({
+    await Usuario.findAll({
         order: [
             ['id', 'cpf', 'nome', 'sobrenome', 'dataNascimento',  'email', 'genero']
         ]
     }).then(() => {
-
         res.render('home/index')
     })
 });
