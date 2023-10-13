@@ -3,14 +3,8 @@ const home_rotas = express.Router();
 const Usuario = require('../models/usuario-model');
 
 home_rotas.get('/', async(req, res) => {
-    await Produto.findAll({
-        order: [
-            ['id', 'DESC']
-        ]
-    }).then(() => {
 
-        res.render('home/index')
-    })
+    res.render('home/index')
 
 })
 
@@ -21,14 +15,13 @@ home_rotas.get('/login', async(req, res) => {
 
 })
 
-home_rotas.get('/addusuario', async(req, res) => {
+home_rotas.get('/cadastro', async(req, res) => {
 
-    res.render('home/add_usuario')
-
+    res.render('home/add_registro')
 
 })
 
-home_rotas.get('/buscarUsuario/:id', async(req, res) => {
+home_rotas.get('/buscarRegistro/:id', async(req, res) => {
     var id = req.params.id
     await Usuario.findByPk(id).then((user) => {
         usuario = {

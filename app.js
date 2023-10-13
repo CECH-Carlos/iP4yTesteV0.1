@@ -3,6 +3,8 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const registro = require('./routes/registro')
+const home = require('./routes/home')
 const path = require('path');
 const router = express.Router();
 const session = require('express-session');
@@ -48,8 +50,8 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb' }));
 
 //Rotas
-//app.use('/user', user)
-//app.use('/home', home)
+app.use('/registro', registro)
+app.use('/home', home)
     //Outros
 const PORT = 8080
 app.listen(PORT, () => {

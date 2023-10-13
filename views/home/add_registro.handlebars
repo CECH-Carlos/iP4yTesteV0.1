@@ -1,0 +1,77 @@
+<section class="background-radial-gradient overflow-hidden" id="#login">
+
+
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                    Registros <br />
+                </h1>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                        <form action="/user/add" method="POST">
+
+                            <h4 style="text-align: center; margin-bottom: 5% ;">Preencha as informações abaixo para a
+                                realização do cadastro</h4>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example4" class="form-control" name="cpf" />
+                                <label class="form-label" for="form3Example4">CPF</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example1" class="form-control" name="name" />
+                                <label class="form-label" for="form3Example1">Nome</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example1" class="form-control" name="sobrenome" />
+                                <label class="form-label" for="form3Example1">Sobrenome</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="date" id="form3Example1" class="form-control" name="dataNascimento" />
+                                <label class="form-label" for="form3Example1">Data de nascimento</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form3Example3" class="form-control" name="email" />
+                                <label class="form-label" for="form3Example3">Email</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <select name="genero">
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="neutro">Neutro</option>
+                                    <option value="transgenero">Transgênero</option>
+                                    <option value="agenero">Agênero</option>
+                                </select>
+                                <label class="form-label" for="form3Example3">Gênero</label>
+                            </div>
+
+                            <input name="nomediv" style="display: none;" id="nomediv" type="text">
+
+
+
+                            <button type="submit" style="background-color: #29539b;
+                    background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);"
+                                class="btn btn-primary btn-block mb-2">
+                                Fazer o cadastro
+
+                            </button>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
