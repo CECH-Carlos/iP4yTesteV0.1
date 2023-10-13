@@ -1,26 +1,57 @@
 const express = require('express');
-//const handlebars = require('express-handlebars')
-//const bodyParser = require('body-parser');
+const handlebars = require('express-handlebars')
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const path = require('path');
 const router = express.Router();
-//const session = require('express-session');
-//const flash = require('connect-flash');
-//const passport = require('passport');
-//require('./config/auth')(passport)
+const session = require('express-session');
+const flash = require('connect-flash');
+const passport = require('passport');
+require('./config/auth')(passport)
 
-router.get('/', function (req, res) {
-    
-    res.sendFile(path.join(__dirname, './views/index.html'));
+//Configuração
 
-});
+//sessão
+app.use(session({
+    secret: 'apptroca',
+    resave: true,
+    saveUninitialized: true
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
 
-router.get('/sobre', function (req, res) {
-    res.sendFile(path.join(__dirname, './views/sobre.html'));
-});
+//middleware
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
+    res.locals.user = req.user || null;
+    next()
+})
 
-app.use('/', router);
-app.listen(process.env.PORT || 8080);
+//cors
+app.use(cors())
+    // Body Parser
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
-console.log('Server rodando!');
+// Handlebars
+app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+app.set('views', path.join(__dirname, 'views'));
+
+//public
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb' }));
+
+//Rotas
+//app.use('/user', user)
+//app.use('/home', home)
+    //Outros
+const PORT = 8080
+app.listen(PORT, () => {
+    console.log('Servidor rodando! ')
+})

@@ -1,5 +1,6 @@
 const express = require("express");
 const user_rotas = express.Router();
+const Usuario = require('../models/usuario-model');
 const passport = require("passport");
 var bcrypy = require("bcryptjs");
 
@@ -18,19 +19,16 @@ user_rotas.post("/add", (req, res) => {
   var cpf = req.body.cpf;
   var dataNascimento = req.body.dataNascimento;
   var genero = req.body.genero;
-  var admin =
-    0 /
     console.log(
       res,
       nome,
       email,
       cpf,
-      admin,
       sobrenome,
       dataNascimento,
       genero
     );
-  saveUser(res, nome, email, cpf, admin, sobrenome, dataNascimento, genero);
+  saveUser(res, nome, email, cpf, sobrenome, dataNascimento, genero);
 });
 
 function saveUser(
@@ -38,7 +36,6 @@ function saveUser(
   nomeuse,
   emailuse,
   cpfuse,
-  adminuse,
   sobrenomeuse,
   dataNascimentouse,
   generouse
@@ -110,7 +107,6 @@ function saveUser(
                 dataNascimento: dataNascimentouse,
                 email: emailuse,
                 genero: generouse,
-                admin: adminuse,
               })
                 .then(() => {
                   res.render("home/loginPage", {

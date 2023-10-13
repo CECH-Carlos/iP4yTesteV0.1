@@ -19,11 +19,7 @@ const Usuaro = db.sequelize.define('registros', {
     },
     genero: {
         type: db.Sequelize.STRING
-    },
-    admin: {
-        type: db.Sequelize.INTEGER
     }
-
 })
 
 //Usuaro.sync({ force: true })
