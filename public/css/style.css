@@ -68,14 +68,6 @@ color: #fff;
         transparent 100%);
  
   }
-  
-  .nav-link {
-      color: #5d6066;
-  }
-  
-  .nav-link:hover{
-      color: #FFF
-  }
    
   .banner{
     margin: 0;
@@ -84,10 +76,6 @@ color: #fff;
       width: 100%;
       height: 300px;
      
-  }
-
-  .nav-item{
-    color: #fff;
   }
   
   .active {
@@ -112,12 +100,6 @@ color: #fff;
     margin: auto;
     width: 90%;
   }
-  .carousel-control-next-icon::after{
-    display: none;
-  }
-  .carousel-control-prev-icon::after{
-    display: none;
-  }
   .card{
     width: auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -131,21 +113,7 @@ color: #fff;
   }
   .tituloOferta{
    font-family: 'Source Sans Pro', sans-serif;
-  }  
-  .imgperfil{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    float: left;
   }
-  .imgProduto{
-    border-radius: 3%;
-    width:  100%;
-    height: 80%;
-    margin-top: 5%;
-    margin-left: 2%;
-  }
-
   .cardProduto{
    width: 55%;
    height: 60%;
@@ -159,10 +127,6 @@ color: #fff;
   @media screen and (max-width:600px) {
     .cardProduto{
       width: 90%;
-    }
-    .imgperfil{
-      width: auto;
-      height: auto;
     }
     .nome{
       font-size: auto;
@@ -181,14 +145,6 @@ color: #fff;
   .btnTrocar{
     width: 70px;
     height: 70px;
-  }
-  .imgProdutoHome{
-    width: 280px;
-    height: auto;
-    border-radius: 3%;
-    margin-bottom: 10%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
   }
   
   
