@@ -845,4 +845,9 @@ input[type="text"]::-webkit-input-placeholder {
   height: 300px;
 }
  
+#TituloRegistro {
+  color: #fff;
+  text-align: center;
+  border-color: #000;
+}
   

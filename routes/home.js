@@ -6,21 +6,13 @@ home_rotas.get("/", async (req, res) => {
   res.render("home/index");
 });
 
-home_rotas.get("/login", async (req, res) => {
-  res.render("home/loginPage");
-});
-
 home_rotas.get("/cadastro", async (req, res) => {
   res.render("home/add_registro");
 });
 
 home_rotas.get("/registros", async (req, res) => {
-    await Usuario.findAll({
-        order: [
-            ['id', 'cpf', 'nome', 'sobrenome', 'dataNascimento',  'email', 'genero']
-        ]
-    }).then(() => {
-        res.render('home/index')
+    Usuario.findAll({order: [['id', 'ASC']]}).then(function(registros){
+        res.render('registros', {registros: registros});
     })
 });
 

@@ -1,8 +1,17 @@
 <section id="conteudoPrincipal">
-        <div class="row" style="margin-top: 2%;">
-                <div id='container' class="col-md-3"></div>
-
-
+    <h1 id="TituloRegistro">Lista de Registros</h1>
+    <div class="row" style="margin-top: 2%;">
+        <div id='container' class="col-md-3">
+            {{#each registros}}
+                ID: {{id}}<br>
+                CPF: {{cpf}}<br>
+                Nome: {{nome}}<br>
+                Sobrenome: {{sobrenome}}<br>
+                Data de Nascimento: {{dataNascimento}}<br>
+                Email: {{email}}<br>
+                Genero: {{genero}}
+                <hr>
+            {{/each}}
         </div>
-
-        <script src="/js/registrosApi.js"></script>
+    </div>
+</section>

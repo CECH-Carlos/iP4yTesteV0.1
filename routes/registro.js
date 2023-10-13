@@ -4,12 +4,12 @@ const Usuario = require("../models/usuario-model");
 const passport = require("passport");
 var bcrypy = require("bcryptjs");
 
-registro_rotas.get("/", (req, res) => {
-  res.send("Pagina de registros");
+registro_rotas.get("/listasRegistros", (req, res) => {
+  res.render("home/registros");
 });
 
-registro_rotas.get("/index", (req, res) => {
-  res.render("registro/index");
+registro_rotas.get("/registros", (req, res) => {
+  res.render("registros");
 });
 
 registro_rotas.post("/add", (req, res) => {
@@ -79,14 +79,14 @@ function saveUser(
         if (usuario) {
           console.log(usuario.email);
           res.render("home/add_registro", {
-            error_msg: "Já existe usuario com esse email!",
+            error_msg: "Já existe registro com esse email!",
           });
         } else {
           bcrypy.genSalt(10, (erro, salt) => {
             bcrypy.hash(cpfuse, salt, (erro, hash) => {
               if (erro) {
                 res.render("home/", {
-                  error_msg: "Houve um erro durante o salvamento do usuario!",
+                  error_msg: "Houve um erro durante o salvamento do registro!",
                 });
               }
 
@@ -102,7 +102,7 @@ function saveUser(
               })
                 .then(() => {
                   res.render("home/registros", {
-                    success_msg: "Usuario adicionado com sucesso!",
+                    success_msg: "Registro adicionado com sucesso!",
                   });
                 })
                 .catch((erro) => {
@@ -127,13 +127,6 @@ registro_rotas.post("/listaRegistros", (req, res, next) => {
     failureRedirect: "/home/login",
     failureFlash: true,
   })(req, res, next);
-});
-
-registro_rotas.get("/logout", (req, res) => {
-  req.logout(req.user, (err) => {
-    if (err) return next(err);
-    res.redirect("/home");
-  });
 });
 
 module.exports = registro_rotas;
