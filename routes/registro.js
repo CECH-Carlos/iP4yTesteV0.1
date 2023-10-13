@@ -76,7 +76,7 @@ function saveUser(
     res.render("home/add_registro", { erros: erros });
   } else {
     Usuario.findOne({
-      where: { email: emailuse, cpf: cpfuse},
+      where: { email: emailuse},
     })
       .then((usuario) => {
         if (usuario) {
